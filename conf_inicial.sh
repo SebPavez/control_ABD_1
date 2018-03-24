@@ -11,18 +11,12 @@ echo "Inicia script!"
 #IMPORTANTE: Este parametro debería pasarse como entrada al script!
 echo "PassW0rD.." | /usr/bin/passwd oracle --stdin
 
-#Cambio a usuario recién creado
-su - oracle
+#Creacion de variables de entorno para instalacion para usuario oracle
+echo "ORACLE_BASE=/spm/app/oracle; export ORACLE_BASE" >> /home/oracle/.bash_profile
+echo "ORACLE_HOME=\$ORACLE_BASE/product/11.2.0/db_spm; export ORACLE_HOME" >> /home/oracle/.bash_profile
+echo "ORACLE_SID=spmpro; export ORACLE_SID" >> /home/oracle/.bash_profile
 
-#Creacion de variables de entorno para instalacion
-echo "ORACLE_BASE=/spm/app/oracle; export ORACLE_BASE" >> .bash_profile
-echo "ORACLE_HOME=\$ORACLE_BASE/product/11.2.0/db_spm; export ORACLE_HOME" >> .bash_profile
-echo "ORACLE_SID=spmpro; export ORACLE_SID" >> .bash_profile
-
-#Volvemos a usuario root
-exit
-
-#Cambiamos nuevamente a usuario oracle para revisar variables de entorno
+#Cambiamos a usuario oracle para revisar variables de entorno
 su - oracle
 
 echo $ORACLE_BASE
