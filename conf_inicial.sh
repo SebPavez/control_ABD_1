@@ -2,28 +2,29 @@
 
 echo "Inicia script!"
 #Se crea grupo para realizar instalación
-groupadd dba
+/usr/sbin/groupadd dba
 
 #Se crea usuario con el que se realizará instalación
-useradd -g dba oracle
+/usr/sbin/useradd -g dba oracle
 
 #Se crea contraseña para el usuario recién creado
 #IMPORTANTE: Este parametro debería pasarse como entrada al script!
-echo Pa$$W0rD.. | passwd oracle --stdin
+echo "PassW0rD.." | /usr/bin/passwd oracle --stdin
 
 #Cambio a usuario recién creado
 su - oracle
 
 #Creacion de variables de entorno para instalacion
-echo "ORACLE_BASE=/spm/app/oracle; export $ORACLE_BASE" >> .bash_profile
-echo "ORACLE_HOME=$ORACLE_BASE/product/11.2.0/db_spm; export $ORACLE_HOME" >> .bash_profile
-echo "ORACLE_SID=spmpro; export $ORACLE_SID" >> .bash_profile
+echo "ORACLE_BASE=/spm/app/oracle; export ORACLE_BASE" >> .bash_profile
+echo "ORACLE_HOME=\$ORACLE_BASE/product/11.2.0/db_spm; export ORACLE_HOME" >> .bash_profile
+echo "ORACLE_SID=spmpro; export ORACLE_SID" >> .bash_profile
 
 #Volvemos a usuario root
 exit
 
 #Cambiamos nuevamente a usuario oracle para revisar variables de entorno
 su - oracle
+
 echo $ORACLE_BASE
 echo $ORACLE_HOME
 echo $ORACLE_SID
