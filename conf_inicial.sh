@@ -22,7 +22,3 @@ unzip p10404530_112030_Linux-x86-64_1of7.zip
 unzip p10404530_112030_Linux-x86-64_2of7.zip
 mv database /home/oracle/database
 xhost +
-#Ingresamos nuevamente al usuario creado
-su - oracle
-#Ejecutamos instalador
-./database/runInstaller
