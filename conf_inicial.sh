@@ -11,7 +11,6 @@ echo "PassW0rD.." | /usr/bin/passwd oracle --stdin
 echo "ORACLE_BASE=/spm/app/oracle; export ORACLE_BASE" >> /home/oracle/.bash_profile
 echo "ORACLE_HOME=\$ORACLE_BASE/product/11.2.0/db_spm; export ORACLE_HOME" >> /home/oracle/.bash_profile
 echo "ORACLE_SID=spmpro; export ORACLE_SID" >> /home/oracle/.bash_profile
-exit
 #creamos carpetas necesarias para instalación y otorgamos permisos a usuario creado para su manipulación
 mkdir -p /spm/app/oracle/product/11.2.0/db_spm
 chmod -R 755 /spm
