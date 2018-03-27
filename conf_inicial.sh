@@ -21,3 +21,6 @@ unzip p10404530_112030_Linux-x86-64_1of7.zip
 unzip p10404530_112030_Linux-x86-64_2of7.zip
 mv database /home/oracle/database
 xhost +
+#se agrega ruta de oracle a PATH
+echo "PATH=\$ORACLE_HOME/bin:\$PATH; export PATH" >> /home/oracle/.bash_profile
+echo "fin de script!"
